@@ -15,12 +15,20 @@
 
 
             const rows = adatok.split('\n')
-            rows.forEach(elt =>{
-                const row = elt.split(',');
-                const year = row[0];
-                const temp = row[1];
-                console.log(row);
-            })
+            let tabla = '<table>';
+                rows.forEach(row => {
+                    let sor = row.split(',');
+                    tabla+= `<tr>`;
+                    for (let i = 0; i < sor.length; i++) {
+                        tabla += `<td>${sor[i]}</td>`;
+                    }
+                    tabla+= `</tr>`;
+
+                });
+                tabla+= '</table>';
+
+                document.getElementById('tabla').innerHTML = tabla;
+            
         }
 
     </script>
