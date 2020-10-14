@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Időzóna</title>
+</head>
+<body>
+    <script>
+        getData();
+        async function getData(){
+            const leker = await fetch('./idozona.csv');
+            const adatok = await leker.text();
+            //console.log(adatok);
+
+
+            const rows = adatok.split('\n')
+            rows.forEach(elt =>{
+                const row = elt.split(',');
+                const year = row[0];
+                const temp = row[1];
+                console.log(row);
+            })
+        }
+
+    </script>
+</body>
+</html>
